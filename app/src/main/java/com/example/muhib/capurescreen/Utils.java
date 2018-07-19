@@ -7,8 +7,12 @@ package com.example.muhib.capurescreen;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -24,7 +28,7 @@ public class Utils {
         int statusBarHeight = frame.top;
 
         //Find the screen dimensions to create bitmap in the same size.
-        int width = activity.getWindowManager().getDefaultDisplay(). getWidth();
+        int width = activity.getWindowManager().getDefaultDisplay().getWidth();
         int height = activity.getWindowManager().getDefaultDisplay().getHeight();
 
         Bitmap b = Bitmap.createBitmap(b1, 0, statusBarHeight, width, height - statusBarHeight);
@@ -43,4 +47,39 @@ public class Utils {
             e.printStackTrace();
         }
     }
+
+//    public static Bitmap takeS(Activity view) {
+
+
+//        View v = view.getRootView();
+//        v.setDrawingCacheEnabled(true);
+//        Bitmap b = v.getDrawingCache();
+//        String extr = Environment.getExternalStorageDirectory().toString();
+//        File myPath = new File(extr, getString(R.string.free_tiket) + ".jpg");
+//        FileOutputStream fos = null;
+//        try
+//
+//        {
+//            fos = new FileOutputStream(myPath);
+//            b.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+//            fos.flush();
+//            fos.close();
+//            MediaStore.Images.Media.insertImage(getContentResolver(), b,
+//                    "Screen", "screen");
+//        } catch (
+//                FileNotFoundException e)
+//
+//        {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        } catch (
+//                Exception e)
+//
+//        {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//        return b;
+//
+//    }
 }
